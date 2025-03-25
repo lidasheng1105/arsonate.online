@@ -1,0 +1,180 @@
+<!DOCTYPE html> <!-- 这是HTML文档类型声明，告诉浏览器这是一个HTML5文档 -->
+<html lang="en"> <!-- 这是HTML文档的根元素，lang="en"表示网页内容使用英语 -->
+<head> <!-- 这里包含页面的元信息，如标题、样式、脚本等，不会直接显示在页面上 -->
+    <meta charset="UTF-8"> <!-- 设置网页字符编码为UTF-8，确保能正确显示各种文字 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，使网页在移动设备上能够正确缩放 -->
+    <title>ARSONATE - An Immersive Online Musical Experience | Play Now</title> <!-- 设置网页标题，会显示在浏览器标签页上 -->
+    <meta name="description" content="ARSONATE is a unique musical experience where sound meets gameplay. Dive into a world of audio-visual harmony."> <!-- 设置网页描述，有利于SEO优化 -->
+    <link rel="canonical" href="https://www.arsonate.online"> <!-- 声明此网页的规范URL，避免重复内容，有利于SEO -->
+    <script src="https://cdn.tailwindcss.com"></script> <!-- 引入Tailwind CSS框架，用于快速样式设计 -->
+    <script> <!-- 开始一个JavaScript代码块 -->
+        tailwind.config = { <!-- 这是Tailwind CSS的配置对象，用于自定义样式 -->
+            theme: { <!-- 主题配置 -->
+                extend: { <!-- 扩展默认主题 -->
+                    colors: { <!-- 自定义颜色 -->
+                        'apple-blue': '#0071e3', <!-- 苹果风格的蓝色 -->
+                        'apple-gray': '#f5f5f7', <!-- 苹果风格的浅灰色 -->
+                        'apple-dark': '#1d1d1f', <!-- 苹果风格的深色 -->
+                        'apple-light': '#fbfbfd' <!-- 苹果风格的浅色 -->
+                    }
+                },
+                fontFamily: { <!-- 自定义字体系列 -->
+                    'sans': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'] <!-- 设置苹果风格的字体 -->
+                }
+            }
+        }
+    </script>
+    <style type="text/css"> <!-- 开始一个CSS样式代码块 -->
+        body { <!-- 为整个网页的body元素设置样式 -->
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; <!-- 设置网页字体 -->
+        }
+        .game-container { <!-- 为游戏容器设置样式 -->
+            position: relative; <!-- 设置相对定位，让子元素能够相对于它进行绝对定位 -->
+            width: 100%; <!-- 宽度占满父元素 -->
+            overflow: hidden; <!-- 隐藏溢出内容 -->
+            padding-top: 56.25%; <!-- 设置顶部内边距为宽度的56.25%，创建16:9的宽高比 -->
+        }
+        .responsive-iframe { <!-- 为响应式iframe设置样式 -->
+            position: absolute; <!-- 绝对定位，相对于父元素 -->
+            top: 0; <!-- 距顶部0像素 -->
+            left: 0; <!-- 距左边0像素 -->
+            bottom: 0; <!-- 距底部0像素 -->
+            right: 0; <!-- 距右边0像素 -->
+            width: 100%; <!-- 宽度占满父元素 -->
+            height: 100%; <!-- 高度占满父元素 -->
+            border: none; <!-- 不显示边框 -->
+        }
+    </style>
+</head>
+<body class="bg-apple-light text-apple-dark"> <!-- 网页的主体部分，设置背景为苹果浅色，文字为苹果深色 -->
+    <!-- 头部区域 -->
+    <header class="bg-apple-dark text-white py-6 px-4 md:px-8"> <!-- 页面头部，深色背景，白色文字，上下内边距6单位，左右内边距4单位，在中等尺寸及以上设备上左右内边距8单位 -->
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between"> <!-- 容器居中，垂直排列元素(在中等尺寸及以上设备上水平排列)，居中对齐，两端对齐 -->
+            <div class="text-center md:text-left mb-4 md:mb-0"> <!-- 文字居中(中等尺寸及以上设备左对齐)，底部外边距4单位(中等尺寸及以上设备为0) -->
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight">ARSONATE</h1> <!-- 一级标题，文字大小4xl(中等尺寸及以上为5xl)，粗体，字母间距紧凑 -->
+                <p class="text-lg md:text-xl mt-2 font-light">Where music and gameplay harmonize in a unique audio experience</p> <!-- 段落，文字大小lg(中等尺寸及以上为xl)，顶部外边距2单位，细体 -->
+            </div>
+            <nav> <!-- 导航部分 -->
+                <ul class="flex space-x-6"> <!-- 无序列表，水平排列，项目间距6单位 -->
+                    <li><a href="#play" class="hover:text-gray-300 transition duration-300">Play</a></li> <!-- 列表项，链接到play部分，鼠标悬停时文字变为灰色，过渡动画300毫秒 -->
+                    <li><a href="#about" class="hover:text-gray-300 transition duration-300">About</a></li> <!-- 列表项，链接到about部分 -->
+                    <li><a href="#features" class="hover:text-gray-300 transition duration-300">Features</a></li> <!-- 列表项，链接到features部分 -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="bg-gradient-to-b from-apple-dark to-black text-white py-16 px-4"> <!-- 从深色到黑色的渐变背景，白色文字，上下内边距16单位，左右内边距4单位 -->
+        <div class="container mx-auto text-center"> <!-- 容器居中，文字居中 -->
+            <h2 class="text-3xl md:text-4xl font-semibold mb-6">Experience Music in a New Dimension</h2> <!-- 二级标题，半粗体，底部外边距6单位 -->
+            <p class="text-xl max-w-3xl mx-auto mb-8">ARSONATE blends interactive gameplay with musical elements, creating an immersive audio-visual journey unlike any other.</p> <!-- 段落，最大宽度3xl，水平居中，底部外边距8单位 -->
+            <a href="#play" class="bg-apple-blue hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">Play Now</a> <!-- 链接按钮，蓝色背景，悬停时深蓝色，白色文字，圆角，过渡动画 -->
+        </div>
+    </section>
+
+    <!-- 游戏区域 -->
+    <section id="play" class="py-16 px-4 bg-apple-gray"> <!-- 游戏部分，id为play，苹果灰色背景 -->
+        <div class="container mx-auto"> <!-- 容器居中 -->
+            <h2 class="text-3xl font-semibold text-center mb-12">Play ARSONATE</h2> <!-- 二级标题，居中，底部外边距12单位 -->
+            <div class="game-container shadow-xl rounded-lg overflow-hidden max-w-5xl mx-auto"> <!-- 游戏容器，大阴影，圆角，溢出隐藏，最大宽度5xl，水平居中 -->
+                <iframe src="https://html-classic.itch.zone/html/13170260/ARSONATE%20-%20WEBGL_DEMO%20-%20CURRENT_RELEASE/index.html" class="responsive-iframe" allowfullscreen></iframe> <!-- 嵌入游戏的iframe，可全屏 -->
+            </div>
+            <div class="text-center mt-6"> <!-- 居中文字，顶部外边距6单位 -->
+                <p class="text-gray-600">For the best experience, use headphones and play in fullscreen mode</p> <!-- 灰色文字提示 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于区域 -->
+    <section id="about" class="py-16 px-4"> <!-- 关于部分，id为about -->
+        <div class="container mx-auto max-w-4xl"> <!-- 容器居中，最大宽度4xl -->
+            <h2 class="text-3xl font-semibold text-center mb-12">About ARSONATE</h2> <!-- 二级标题，居中，底部外边距12单位 -->
+            <div class="bg-white p-8 rounded-2xl shadow-md"> <!-- 白色背景，内边距8单位，大圆角，中等阴影 -->
+                <p class="text-lg mb-6">ARSONATE is an innovative musical game experience that combines interactive gameplay with dynamic sound design. Every action you take influences the soundscape, creating a personalized audio journey.</p> <!-- 段落文字，底部外边距6单位 -->
+                <p class="text-lg mb-6">Developed by a team of passionate musicians and game developers, ARSONATE aims to bridge the gap between gaming and musical expression, offering players a chance to become composers through play.</p> <!-- 段落文字，底部外边距6单位 -->
+                <p class="text-lg">The game features procedurally generated audio elements that respond to player input, ensuring that each playthrough delivers a unique sonic experience.</p> <!-- 段落文字 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 特点区域 -->
+    <section id="features" class="py-16 px-4 bg-apple-gray"> <!-- 特点部分，id为features，苹果灰色背景 -->
+        <div class="container mx-auto"> <!-- 容器居中 -->
+            <h2 class="text-3xl font-semibold text-center mb-12">Key Features</h2> <!-- 二级标题，居中，底部外边距12单位 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> <!-- 网格布局，小屏幕1列，中等尺寸及以上3列，间距8单位 -->
+                <div class="bg-white p-6 rounded-xl shadow-md"> <!-- 白色背景，内边距6单位，圆角，中等阴影 -->
+                    <h2 class="text-2xl font-medium mb-4">Interactive Audio</h2> <!-- 二级标题，中等粗体，底部外边距4单位 -->
+                    <p>Every interaction creates meaningful sound, building a dynamic soundtrack that evolves with your gameplay.</p> <!-- 段落文字 -->
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md"> <!-- 同上，第二个特点卡片 -->
+                    <h2 class="text-2xl font-medium mb-4">Visual Harmony</h2> <!-- 二级标题 -->
+                    <p>Stunning visuals synchronized with the audio elements create a cohesive sensory experience.</p> <!-- 段落文字 -->
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md"> <!-- 同上，第三个特点卡片 -->
+                    <h2 class="text-2xl font-medium mb-4">Endless Replay Value</h2> <!-- 二级标题 -->
+                    <p>Procedurally generated elements ensure that no two playthroughs are exactly alike.</p> <!-- 段落文字 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 如何游玩区域 -->
+    <section class="py-16 px-4"> <!-- 如何游玩部分 -->
+        <div class="container mx-auto max-w-4xl"> <!-- 容器居中，最大宽度4xl -->
+            <h2 class="text-3xl font-semibold text-center mb-12">How to Play</h2> <!-- 二级标题，居中，底部外边距12单位 -->
+            <div class="bg-white p-8 rounded-2xl shadow-md"> <!-- 白色背景，内边距8单位，大圆角，中等阴影 -->
+                <div class="mb-8"> <!-- 底部外边距8单位 -->
+                    <h2 class="text-2xl font-medium mb-4">Controls</h2> <!-- 二级标题，中等粗体，底部外边距4单位 -->
+                    <ul class="list-disc pl-6 space-y-2"> <!-- 无序列表，显示圆点，左内边距6单位，项目垂直间距2单位 -->
+                        <li>Use WASD or arrow keys to navigate</li> <!-- 列表项，关于导航控制 -->
+                        <li>Mouse to look around and interact</li> <!-- 列表项，关于鼠标控制 -->
+                        <li>Space bar to jump</li> <!-- 列表项，关于跳跃控制 -->
+                        <li>E key to interact with musical elements</li> <!-- 列表项，关于交互控制 -->
+                    </ul>
+                </div>
+                <div> <!-- 提示部分 -->
+                    <h2 class="text-2xl font-medium mb-4">Tips for Beginners</h2> <!-- 二级标题，中等粗体，底部外边距4单位 -->
+                    <ul class="list-disc pl-6 space-y-2"> <!-- 无序列表，显示圆点，左内边距6单位，项目垂直间距2单位 -->
+                        <li>Listen carefully to the audio cues – they guide your journey</li> <!-- 列表项，关于音频线索 -->
+                        <li>Experiment with different interaction patterns to discover new sounds</li> <!-- 列表项，关于交互模式 -->
+                        <li>Take your time to explore the environment fully</li> <!-- 列表项，关于探索环境 -->
+                        <li>Use headphones for the most immersive experience</li> <!-- 列表项，关于使用耳机 -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-apple-dark text-white py-10 px-4"> <!-- 页脚部分，深色背景，白色文字 -->
+        <div class="container mx-auto"> <!-- 容器居中 -->
+            <div class="flex flex-col md:flex-row justify-between items-center"> <!-- 垂直排列(中等尺寸及以上水平排列)，两端对齐，居中对齐 -->
+                <div class="mb-6 md:mb-0"> <!-- 底部外边距6单位(中等尺寸及以上为0) -->
+                    <h2 class="text-2xl font-bold">ARSONATE</h2> <!-- 二级标题，粗体 -->
+                    <p class="text-gray-400 mt-2">© 2025 ARSONATE. All rights reserved.</p> <!-- 灰色文字，顶部外边距2单位，版权信息 -->
+                </div>
+                <div> <!-- 页脚链接部分 -->
+                    <ul class="flex space-x-6"> <!-- 无序列表，水平排列，项目间距6单位 -->
+                        <li><a href="#" class="hover:text-gray-300 transition duration-300">Privacy Policy</a></li> <!-- 列表项，链接到隐私政策 -->
+                        <li><a href="#" class="hover:text-gray-300 transition duration-300">Terms of Service</a></li> <!-- 列表项，链接到服务条款 -->
+                        <li><a href="#" class="hover:text-gray-300 transition duration-300">Contact</a></li> <!-- 列表项，链接到联系页面 -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 平滑滚动的基本JavaScript -->
+    <script> <!-- 开始一个JavaScript代码块 -->
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { <!-- 选择所有以#开头的链接，为每个链接执行以下函数 -->
+            anchor.addEventListener('click', function (e) { <!-- 为链接添加点击事件监听器 -->
+                e.preventDefault(); <!-- 阻止链接的默认行为（跳转） -->
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ <!-- 获取链接的href属性，找到对应元素并滚动到视图中 -->
+                    behavior: 'smooth' <!-- 使用平滑滚动效果 -->
+                });
+            });
+        });
+    </script>
+</body>
+</html>
