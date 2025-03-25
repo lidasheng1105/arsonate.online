@@ -1,180 +1,300 @@
-<!DOCTYPE html> <!-- 这是HTML文档类型声明，告诉浏览器这是一个HTML5文档 -->
-<html lang="en"> <!-- 这是HTML文档的根元素，lang="en"表示网页内容使用英语 -->
-<head> <!-- 这里包含页面的元信息，如标题、样式、脚本等，不会直接显示在页面上 -->
-    <meta charset="UTF-8"> <!-- 设置网页字符编码为UTF-8，确保能正确显示各种文字 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，使网页在移动设备上能够正确缩放 -->
-    <title>ARSONATE - An Immersive Online Musical Experience | Play Now</title> <!-- 设置网页标题，会显示在浏览器标签页上 -->
-    <meta name="description" content="ARSONATE is a unique musical experience where sound meets gameplay. Dive into a world of audio-visual harmony."> <!-- 设置网页描述，有利于SEO优化 -->
-    <link rel="canonical" href="https://www.arsonate.online"> <!-- 声明此网页的规范URL，避免重复内容，有利于SEO -->
-    <script src="https://cdn.tailwindcss.com"></script> <!-- 引入Tailwind CSS框架，用于快速样式设计 -->
-    <script> <!-- 开始一个JavaScript代码块 -->
-        tailwind.config = { <!-- 这是Tailwind CSS的配置对象，用于自定义样式 -->
-            theme: { <!-- 主题配置 -->
-                extend: { <!-- 扩展默认主题 -->
-                    colors: { <!-- 自定义颜色 -->
-                        'apple-blue': '#0071e3', <!-- 苹果风格的蓝色 -->
-                        'apple-gray': '#f5f5f7', <!-- 苹果风格的浅灰色 -->
-                        'apple-dark': '#1d1d1f', <!-- 苹果风格的深色 -->
-                        'apple-light': '#fbfbfd' <!-- 苹果风格的浅色 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARSONATE - An Immersive Audio Visual Experience</title>
+    <meta name="description" content="ARSONATE is a unique audio-visual game that challenges your senses and reflexes in a mesmerizing digital environment.">
+    <meta name="keywords" content="arsonate, audio game, visual game, online game, rhythm game">
+    <link rel="canonical" href="https://www.arsonate.online">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        appleBlue: '#0071e3',
+                        appleDarkGray: '#1d1d1f',
+                        appleLightGray: '#f5f5f7',
+                        appleWhite: '#ffffff',
                     }
-                },
-                fontFamily: { <!-- 自定义字体系列 -->
-                    'sans': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'] <!-- 设置苹果风格的字体 -->
                 }
             }
         }
     </script>
-    <style type="text/css"> <!-- 开始一个CSS样式代码块 -->
-        body { <!-- 为整个网页的body元素设置样式 -->
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; <!-- 设置网页字体 -->
-        }
-        .game-container { <!-- 为游戏容器设置样式 -->
-            position: relative; <!-- 设置相对定位，让子元素能够相对于它进行绝对定位 -->
-            width: 100%; <!-- 宽度占满父元素 -->
-            overflow: hidden; <!-- 隐藏溢出内容 -->
-            padding-top: 56.25%; <!-- 设置顶部内边距为宽度的56.25%，创建16:9的宽高比 -->
-        }
-        .responsive-iframe { <!-- 为响应式iframe设置样式 -->
-            position: absolute; <!-- 绝对定位，相对于父元素 -->
-            top: 0; <!-- 距顶部0像素 -->
-            left: 0; <!-- 距左边0像素 -->
-            bottom: 0; <!-- 距底部0像素 -->
-            right: 0; <!-- 距右边0像素 -->
-            width: 100%; <!-- 宽度占满父元素 -->
-            height: 100%; <!-- 高度占满父元素 -->
-            border: none; <!-- 不显示边框 -->
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                background-image: linear-gradient(45deg, #0071e3, #40c8e0);
+            }
         }
     </style>
 </head>
-<body class="bg-apple-light text-apple-dark"> <!-- 网页的主体部分，设置背景为苹果浅色，文字为苹果深色 -->
-    <!-- 头部区域 -->
-    <header class="bg-apple-dark text-white py-6 px-4 md:px-8"> <!-- 页面头部，深色背景，白色文字，上下内边距6单位，左右内边距4单位，在中等尺寸及以上设备上左右内边距8单位 -->
-        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between"> <!-- 容器居中，垂直排列元素(在中等尺寸及以上设备上水平排列)，居中对齐，两端对齐 -->
-            <div class="text-center md:text-left mb-4 md:mb-0"> <!-- 文字居中(中等尺寸及以上设备左对齐)，底部外边距4单位(中等尺寸及以上设备为0) -->
-                <h1 class="text-4xl md:text-5xl font-bold tracking-tight">ARSONATE</h1> <!-- 一级标题，文字大小4xl(中等尺寸及以上为5xl)，粗体，字母间距紧凑 -->
-                <p class="text-lg md:text-xl mt-2 font-light">Where music and gameplay harmonize in a unique audio experience</p> <!-- 段落，文字大小lg(中等尺寸及以上为xl)，顶部外边距2单位，细体 -->
+<body class="bg-appleLightGray text-appleDarkGray font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-appleWhite/80 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/" class="text-2xl font-bold text-appleBlue">ARSONATE</a>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
+                    <a href="#game" class="px-3 py-2 rounded-md text-sm font-medium text-appleDarkGray hover:bg-gray-100">Play Now</a>
+                    <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium text-appleDarkGray hover:bg-gray-100">About</a>
+                    <a href="#features" class="px-3 py-2 rounded-md text-sm font-medium text-appleDarkGray hover:bg-gray-100">Features</a>
+                    <a href="#controls" class="px-3 py-2 rounded-md text-sm font-medium text-appleDarkGray hover:bg-gray-100">How to Play</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <nav> <!-- 导航部分 -->
-                <ul class="flex space-x-6"> <!-- 无序列表，水平排列，项目间距6单位 -->
-                    <li><a href="#play" class="hover:text-gray-300 transition duration-300">Play</a></li> <!-- 列表项，链接到play部分，鼠标悬停时文字变为灰色，过渡动画300毫秒 -->
-                    <li><a href="#about" class="hover:text-gray-300 transition duration-300">About</a></li> <!-- 列表项，链接到about部分 -->
-                    <li><a href="#features" class="hover:text-gray-300 transition duration-300">Features</a></li> <!-- 列表项，链接到features部分 -->
-                </ul>
-            </nav>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#game" class="block px-3 py-2 rounded-md text-base font-medium text-appleDarkGray hover:bg-gray-100">Play Now</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-appleDarkGray hover:bg-gray-100">About</a>
+                <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-appleDarkGray hover:bg-gray-100">Features</a>
+                <a href="#controls" class="block px-3 py-2 rounded-md text-base font-medium text-appleDarkGray hover:bg-gray-100">How to Play</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-gradient-to-r from-black to-appleDarkGray text-white overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-24 sm:py-32">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-4 text-gradient">ARSONATE</h1>
+                <p class="text-xl sm:text-2xl max-w-3xl mx-auto text-gray-200">An immersive audio-visual experience where sound and light synchronize to create a mesmerizing gameplay journey.</p>
+                <div class="mt-10">
+                    <a href="#game" class="inline-block bg-appleBlue text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-blue-600 transition duration-300 transform hover:scale-105">
+                        Play Now
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- 英雄区域 -->
-    <section class="bg-gradient-to-b from-apple-dark to-black text-white py-16 px-4"> <!-- 从深色到黑色的渐变背景，白色文字，上下内边距16单位，左右内边距4单位 -->
-        <div class="container mx-auto text-center"> <!-- 容器居中，文字居中 -->
-            <h2 class="text-3xl md:text-4xl font-semibold mb-6">Experience Music in a New Dimension</h2> <!-- 二级标题，半粗体，底部外边距6单位 -->
-            <p class="text-xl max-w-3xl mx-auto mb-8">ARSONATE blends interactive gameplay with musical elements, creating an immersive audio-visual journey unlike any other.</p> <!-- 段落，最大宽度3xl，水平居中，底部外边距8单位 -->
-            <a href="#play" class="bg-apple-blue hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">Play Now</a> <!-- 链接按钮，蓝色背景，悬停时深蓝色，白色文字，圆角，过渡动画 -->
-        </div>
-    </section>
-
-    <!-- 游戏区域 -->
-    <section id="play" class="py-16 px-4 bg-apple-gray"> <!-- 游戏部分，id为play，苹果灰色背景 -->
-        <div class="container mx-auto"> <!-- 容器居中 -->
-            <h2 class="text-3xl font-semibold text-center mb-12">Play ARSONATE</h2> <!-- 二级标题，居中，底部外边距12单位 -->
-            <div class="game-container shadow-xl rounded-lg overflow-hidden max-w-5xl mx-auto"> <!-- 游戏容器，大阴影，圆角，溢出隐藏，最大宽度5xl，水平居中 -->
-                <iframe src="https://html-classic.itch.zone/html/13170260/ARSONATE%20-%20WEBGL_DEMO%20-%20CURRENT_RELEASE/index.html" class="responsive-iframe" allowfullscreen></iframe> <!-- 嵌入游戏的iframe，可全屏 -->
+    <!-- Game Section -->
+    <section id="game" class="py-16 bg-appleWhite">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-appleDarkGray">Experience ARSONATE</h2>
+            <div class="w-full aspect-[16/9] max-w-5xl mx-auto shadow-2xl rounded-lg overflow-hidden">
+                <iframe 
+                    src="https://html-classic.itch.zone/html/13170260/ARSONATE%20-%20WEBGL_DEMO%20-%20CURRENT_RELEASE/index.html" 
+                    class="w-full h-full border-0"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
             </div>
-            <div class="text-center mt-6"> <!-- 居中文字，顶部外边距6单位 -->
-                <p class="text-gray-600">For the best experience, use headphones and play in fullscreen mode</p> <!-- 灰色文字提示 -->
+            <div class="text-center mt-8 text-gray-600 italic">
+                <p>For the best experience, use headphones and play in fullscreen mode.</p>
             </div>
         </div>
     </section>
 
-    <!-- 关于区域 -->
-    <section id="about" class="py-16 px-4"> <!-- 关于部分，id为about -->
-        <div class="container mx-auto max-w-4xl"> <!-- 容器居中，最大宽度4xl -->
-            <h2 class="text-3xl font-semibold text-center mb-12">About ARSONATE</h2> <!-- 二级标题，居中，底部外边距12单位 -->
-            <div class="bg-white p-8 rounded-2xl shadow-md"> <!-- 白色背景，内边距8单位，大圆角，中等阴影 -->
-                <p class="text-lg mb-6">ARSONATE is an innovative musical game experience that combines interactive gameplay with dynamic sound design. Every action you take influences the soundscape, creating a personalized audio journey.</p> <!-- 段落文字，底部外边距6单位 -->
-                <p class="text-lg mb-6">Developed by a team of passionate musicians and game developers, ARSONATE aims to bridge the gap between gaming and musical expression, offering players a chance to become composers through play.</p> <!-- 段落文字，底部外边距6单位 -->
-                <p class="text-lg">The game features procedurally generated audio elements that respond to player input, ensuring that each playthrough delivers a unique sonic experience.</p> <!-- 段落文字 -->
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-appleLightGray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-appleDarkGray">About ARSONATE</h2>
+            <div class="prose prose-lg max-w-4xl mx-auto text-gray-700">
+                <p class="text-xl">ARSONATE is a groundbreaking audio-visual experience that blends music, light, and gameplay into a harmonious digital symphony. The game challenges players to synchronize their actions with the rhythm of mesmerizing soundscapes, creating a unique and immersive journey.</p>
+                <p>Created by a team of passionate developers, ARSONATE explores the intersection of gaming, music, and visual art. Each level is carefully crafted to deliver a sensory experience that engages players on multiple levels, making it both a game and an artistic expression.</p>
+                <p>The name "ARSONATE" combines "ars" (Latin for art) and "sonate" (to sound), reflecting the game's focus on artistic sound experiences. The game's development was inspired by the synesthetic relationship between sound and visual perception.</p>
             </div>
         </div>
     </section>
 
-    <!-- 特点区域 -->
-    <section id="features" class="py-16 px-4 bg-apple-gray"> <!-- 特点部分，id为features，苹果灰色背景 -->
-        <div class="container mx-auto"> <!-- 容器居中 -->
-            <h2 class="text-3xl font-semibold text-center mb-12">Key Features</h2> <!-- 二级标题，居中，底部外边距12单位 -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> <!-- 网格布局，小屏幕1列，中等尺寸及以上3列，间距8单位 -->
-                <div class="bg-white p-6 rounded-xl shadow-md"> <!-- 白色背景，内边距6单位，圆角，中等阴影 -->
-                    <h2 class="text-2xl font-medium mb-4">Interactive Audio</h2> <!-- 二级标题，中等粗体，底部外边距4单位 -->
-                    <p>Every interaction creates meaningful sound, building a dynamic soundtrack that evolves with your gameplay.</p> <!-- 段落文字 -->
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-appleWhite">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-appleDarkGray">Game Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-appleLightGray p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-appleBlue text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Dynamic Audio</h3>
+                    <p class="text-gray-700">Experience responsive soundscapes that evolve with your gameplay, creating a unique audio journey every time you play.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md"> <!-- 同上，第二个特点卡片 -->
-                    <h2 class="text-2xl font-medium mb-4">Visual Harmony</h2> <!-- 二级标题 -->
-                    <p>Stunning visuals synchronized with the audio elements create a cohesive sensory experience.</p> <!-- 段落文字 -->
+                <div class="bg-appleLightGray p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-appleBlue text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Visual Artistry</h3>
+                    <p class="text-gray-700">Stunning visuals synchronize perfectly with the audio elements, creating a mesmerizing feast for your senses.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md"> <!-- 同上，第三个特点卡片 -->
-                    <h2 class="text-2xl font-medium mb-4">Endless Replay Value</h2> <!-- 二级标题 -->
-                    <p>Procedurally generated elements ensure that no two playthroughs are exactly alike.</p> <!-- 段落文字 -->
+                <div class="bg-appleLightGray p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-appleBlue text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Intuitive Gameplay</h3>
+                    <p class="text-gray-700">Easy to learn but challenging to master, with gameplay that adapts to your skill level as you progress.</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                <div class="bg-appleLightGray p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-appleBlue text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Progressive Difficulty</h3>
+                    <p class="text-gray-700">Multiple levels with increasing complexity keep you engaged and challenged throughout your journey.</p>
+                </div>
+                <div class="bg-appleLightGray p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-appleBlue text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Cross-Platform Experience</h3>
+                    <p class="text-gray-700">Enjoy ARSONATE on any device, with responsive design that adapts to your screen size for optimal gameplay.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 如何游玩区域 -->
-    <section class="py-16 px-4"> <!-- 如何游玩部分 -->
-        <div class="container mx-auto max-w-4xl"> <!-- 容器居中，最大宽度4xl -->
-            <h2 class="text-3xl font-semibold text-center mb-12">How to Play</h2> <!-- 二级标题，居中，底部外边距12单位 -->
-            <div class="bg-white p-8 rounded-2xl shadow-md"> <!-- 白色背景，内边距8单位，大圆角，中等阴影 -->
-                <div class="mb-8"> <!-- 底部外边距8单位 -->
-                    <h2 class="text-2xl font-medium mb-4">Controls</h2> <!-- 二级标题，中等粗体，底部外边距4单位 -->
-                    <ul class="list-disc pl-6 space-y-2"> <!-- 无序列表，显示圆点，左内边距6单位，项目垂直间距2单位 -->
-                        <li>Use WASD or arrow keys to navigate</li> <!-- 列表项，关于导航控制 -->
-                        <li>Mouse to look around and interact</li> <!-- 列表项，关于鼠标控制 -->
-                        <li>Space bar to jump</li> <!-- 列表项，关于跳跃控制 -->
-                        <li>E key to interact with musical elements</li> <!-- 列表项，关于交互控制 -->
+    <!-- Controls Section -->
+    <section id="controls" class="py-16 bg-appleLightGray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-appleDarkGray">How to Play</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-appleWhite p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-appleDarkGray">Basic Controls</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="bg-appleBlue text-white font-mono px-2 py-1 rounded mr-3 text-sm">W A S D</span>
+                            <span>Movement controls to navigate through the sound environment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-appleBlue text-white font-mono px-2 py-1 rounded mr-3 text-sm">SPACE</span>
+                            <span>Interact with audio elements and trigger effects</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-appleBlue text-white font-mono px-2 py-1 rounded mr-3 text-sm">E</span>
+                            <span>Access special audio-visual combinations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-appleBlue text-white font-mono px-2 py-1 rounded mr-3 text-sm">ESC</span>
+                            <span>Pause game and access settings</span>
+                        </li>
                     </ul>
                 </div>
-                <div> <!-- 提示部分 -->
-                    <h2 class="text-2xl font-medium mb-4">Tips for Beginners</h2> <!-- 二级标题，中等粗体，底部外边距4单位 -->
-                    <ul class="list-disc pl-6 space-y-2"> <!-- 无序列表，显示圆点，左内边距6单位，项目垂直间距2单位 -->
-                        <li>Listen carefully to the audio cues – they guide your journey</li> <!-- 列表项，关于音频线索 -->
-                        <li>Experiment with different interaction patterns to discover new sounds</li> <!-- 列表项，关于交互模式 -->
-                        <li>Take your time to explore the environment fully</li> <!-- 列表项，关于探索环境 -->
-                        <li>Use headphones for the most immersive experience</li> <!-- 列表项，关于使用耳机 -->
+                <div class="bg-appleWhite p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold mb-4 text-appleDarkGray">Tips for Success</h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-appleBlue mr-2">•</span>
+                            <span>Use high-quality headphones for the most immersive audio experience</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-appleBlue mr-2">•</span>
+                            <span>Pay attention to the rhythm of the background music for timing cues</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-appleBlue mr-2">•</span>
+                            <span>Visual patterns often hint at upcoming audio events - learn to recognize them</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-appleBlue mr-2">•</span>
+                            <span>Practice makes perfect - each playthrough will improve your synchronization skills</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-appleBlue mr-2">•</span>
+                            <span>Don't be afraid to experiment with different combinations of actions</span>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 页脚 -->
-    <footer class="bg-apple-dark text-white py-10 px-4"> <!-- 页脚部分，深色背景，白色文字 -->
-        <div class="container mx-auto"> <!-- 容器居中 -->
-            <div class="flex flex-col md:flex-row justify-between items-center"> <!-- 垂直排列(中等尺寸及以上水平排列)，两端对齐，居中对齐 -->
-                <div class="mb-6 md:mb-0"> <!-- 底部外边距6单位(中等尺寸及以上为0) -->
-                    <h2 class="text-2xl font-bold">ARSONATE</h2> <!-- 二级标题，粗体 -->
-                    <p class="text-gray-400 mt-2">© 2025 ARSONATE. All rights reserved.</p> <!-- 灰色文字，顶部外边距2单位，版权信息 -->
+    <!-- Footer -->
+    <footer class="bg-appleDarkGray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ARSONATE</h3>
+                    <p class="text-gray-300">An immersive audio-visual experience where sound and light synchronize to create a mesmerizing gameplay journey.</p>
                 </div>
-                <div> <!-- 页脚链接部分 -->
-                    <ul class="flex space-x-6"> <!-- 无序列表，水平排列，项目间距6单位 -->
-                        <li><a href="#" class="hover:text-gray-300 transition duration-300">Privacy Policy</a></li> <!-- 列表项，链接到隐私政策 -->
-                        <li><a href="#" class="hover:text-gray-300 transition duration-300">Terms of Service</a></li> <!-- 列表项，链接到服务条款 -->
-                        <li><a href="#" class="hover:text-gray-300 transition duration-300">Contact</a></li> <!-- 列表项，链接到联系页面 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#game" class="text-gray-300 hover:text-white transition-colors">Play Now</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#features" class="text-gray-300 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#controls" class="text-gray-300 hover:text-white transition-colors">How to Play</a></li>
                     </ul>
                 </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <span class="sr-only">GitHub</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <span class="sr-only">Instagram</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2023 ARSONATE. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- 平滑滚动的基本JavaScript -->
-    <script> <!-- 开始一个JavaScript代码块 -->
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => { <!-- 选择所有以#开头的链接，为每个链接执行以下函数 -->
-            anchor.addEventListener('click', function (e) { <!-- 为链接添加点击事件监听器 -->
-                e.preventDefault(); <!-- 阻止链接的默认行为（跳转） -->
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ <!-- 获取链接的href属性，找到对应元素并滚动到视图中 -->
-                    behavior: 'smooth' <!-- 使用平滑滚动效果 -->
-                });
+    <!-- JavaScript for mobile menu toggle -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
         });
     </script>
 </body>
-</html>
+</html> 
